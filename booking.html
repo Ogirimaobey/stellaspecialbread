@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Slot | Stella Special Bread</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfaf6; color: #1a1a1a; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .gold { color: #c5a059; }
+        .bg-gold { background-color: #c5a059; }
+        .slot-card { transition: all 0.3s ease; border: 1px solid #e5e7eb; cursor: pointer; }
+        .slot-card:hover:not(.sold-out) { border-color: #c5a059; transform: translateY(-4px); box-shadow: 0 10px 30px -10px rgba(197,160,89,0.2); }
+        .sold-out { opacity: 0.4; cursor: not-allowed; filter: grayscale(1); background: #f3f4f6; }
+        .selected { border: 2px solid #c5a059 !important; background: #fffdfa; }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-6 bg-[#fdfaf6]/90 backdrop-blur-md border-b border-gray-100">
+        <div class="text-xl font-bold tracking-tighter uppercase">Stella <span class="gold">Special</span></div>
+        <div class="hidden md:flex space-x-12 text-[10px] tracking-[0.2em] uppercase font-bold">
+            <a href="index.html" class="hover:text-[#c5a059] transition">Home</a>
+            <a href="lab.html" class="hover:text-[#c5a059] transition">The Lab</a>
+            <a href="booking.html" class="gold">Book a Slot</a>
+            <a href="wholesale.html" class="hover:text-[#c5a059] transition">Wholesale</a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-32 px-8 md:px-16 max-w-5xl mx-auto">
+        <header class="text-center mb-16">
+            <span class="gold uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Reservation</span>
+            <h1 class="text-5xl md:text-7xl font-serif italic">Secure Your Batch</h1>
+            <p class="text-gray-500 mt-4">Pickup Location: 123 Stella Lab, Artisan District</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="slot-card p-10 rounded-2xl bg-white" onclick="selectSlot(this)">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-3xl font-bold italic font-serif">08:00 AM</span>
+                    <span class="text-[10px] bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Available</span>
+                </div>
+                <p class="text-xs text-gray-400 uppercase tracking-widest">Early Bird Bake • 12 Loaves Left</p>
+            </div>
+            <div class="slot-card p-10 rounded-2xl sold-out">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-3xl font-bold italic font-serif">10:30 AM</span>
+                    <span class="text-[10px] bg-gray-200 text-gray-500 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Sold Out</span>
+                </div>
+                <p class="text-xs text-gray-400 uppercase tracking-widest">Mid Morning • Next Bake: Tomorrow</p>
+            </div>
+            <div class="slot-card p-10 rounded-2xl bg-white" onclick="selectSlot(this)">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-3xl font-bold italic font-serif">01:00 PM</span>
+                    <span class="text-[10px] bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Limited</span>
+                </div>
+                <p class="text-xs text-gray-400 uppercase tracking-widest">Afternoon Fresh • 3 Loaves Left</p>
+            </div>
+            <div class="slot-card p-10 rounded-2xl bg-white" onclick="selectSlot(this)">
+                <div class="flex justify-between items-center mb-6">
+                    <span class="text-3xl font-bold italic font-serif">04:00 PM</span>
+                    <span class="text-[10px] bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Available</span>
+                </div>
+                <p class="text-xs text-gray-400 uppercase tracking-widest">Evening Collection • 15 Loaves Left</p>
+            </div>
+        </div>
+
+        <div class="mt-16 bg-[#1a1a1a] p-12 text-white rounded-sm text-center">
+            <h3 class="font-serif text-3xl mb-6 italic">Confirm Selection</h3>
+            <button class="bg-gold text-black px-12 py-4 rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-300">Complete Reservation</button>
+        </div>
+    </section>
+
+    <script>
+        function selectSlot(el) {
+            document.querySelectorAll('.slot-card').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
