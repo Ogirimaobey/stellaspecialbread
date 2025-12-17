@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lab | Stella Special Bread</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfaf6; color: #1a1a1a; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .gold { color: #c5a059; }
+        .bg-gold { background-color: #c5a059; }
+        .nav-link { letter-spacing: 0.2em; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+        .product-card img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-6 bg-[#fdfaf6]/90 backdrop-blur-md border-b border-gray-100">
+        <div class="text-xl font-bold tracking-tighter uppercase">Stella <span class="gold">Special</span></div>
+        <div class="hidden md:flex space-x-12 nav-link">
+            <a href="index.html" class="hover:text-[#c5a059] transition">Home</a>
+            <a href="lab.html" class="gold">The Lab</a>
+            <a href="booking.html" class="hover:text-[#c5a059] transition">Book a Slot</a>
+            <a href="wholesale.html" class="hover:text-[#c5a059] transition">Wholesale</a>
+        </div>
+        <a href="booking.html" class="bg-[#1a1a1a] text-white px-6 py-2 rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-gold transition">Order</a>
+    </nav>
+
+    <header class="pt-40 pb-20 px-8 text-center">
+        <span class="gold uppercase tracking-[0.4em] text-xs font-bold mb-4 block">The Rotation</span>
+        <h1 class="text-6xl md:text-8xl font-serif italic">The Lab</h1>
+        <p class="max-w-lg mx-auto text-gray-500 mt-6 font-light">A curated selection of our current bakes. Each loaf is a result of meticulous hydration testing and grain selection.</p>
+    </header>
+
+    <section class="pb-32 px-8 md:px-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
+            
+            <div class="product-card group">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 rounded-sm mb-8">
+                    <img src="https://images.unsplash.com/photo-1585478259715-876a6a81b2d4?auto=format&fit=crop&q=80" alt="Signature Sourdough" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <h3 class="text-2xl font-serif italic">Signature Sourdough</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">85% Hydration • Organic White</p>
+                    </div>
+                    <span class="text-lg font-light">$12</span>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">Our flagship loaf. Open crumb, blistered crust, and a distinct tangy profile developed over 48 hours.</p>
+            </div>
+
+            <div class="product-card group">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 rounded-sm mb-8">
+                    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80" alt="Seeded Rye" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <h3 class="text-2xl font-serif italic">Midnight Rye</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">Whole Grain • Toasted Seeds</p>
+                    </div>
+                    <span class="text-lg font-light">$14</span>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">Deep, earthy tones with a dense, moist crumb. Loaded with toasted pumpkin and sunflower seeds.</p>
+            </div>
+
+            <div class="product-card group">
+                <div class="aspect-[3/4] overflow-hidden bg-gray-100 rounded-sm mb-8">
+                    <img src="https://images.unsplash.com/photo-1606101273945-e9eba91c0dc4?auto=format&fit=crop&q=80" alt="Honey Brioche" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <h3 class="text-2xl font-serif italic">Golden Brioche</h3>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-2">Enriched • Grass-fed Butter</p>
+                    </div>
+                    <span class="text-lg font-light">$16</span>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">Pillowy soft and naturally sweet. Made with local honey and premium cultured butter.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#1a1a1a] text-white text-center">
+        <h2 class="text-4xl font-serif italic mb-8">Ready to taste the difference?</h2>
+        <a href="booking.html" class="inline-block bg-gold text-[#1a1a1a] px-12 py-4 rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-300">Reserve Your Batch</a>
+    </section>
+
+    <footer class="bg-[#fdfaf6] py-20 px-8 text-center border-t border-gray-100">
+        <div class="text-[10px] uppercase tracking-[0.5em] text-gray-400 mb-4 font-bold">Stella Special Bread Co.</div>
+        <p class="text-xs text-gray-400">&copy; 2025 Crafted with Patience.</p>
+    </footer>
+
+</body>
+</html>
