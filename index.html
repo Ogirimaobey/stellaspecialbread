@@ -7,113 +7,98 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfaf6; color: #1a1a1a; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfaf6; color: #1a1a1a; }
         .font-serif { font-family: 'Cormorant Garamond', serif; }
         .gold { color: #c5a059; }
-        .bg-gold { background-color: #c5a059; }
         
-        /* Notification Animation */
-        #notification {
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* The Motivation Slider Animation */
+        #motivation-container {
+            transition: opacity 0.8s ease-in-out;
         }
-        #notification.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        .fade-out { opacity: 0; }
+        .fade-in { opacity: 1; }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-8 bg-transparent text-white transition-all duration-500" id="navbar">
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-8 bg-transparent text-white" id="navbar">
         <div class="text-2xl font-bold tracking-tighter uppercase">Stella <span class="gold">Special</span></div>
         <div class="hidden md:flex space-x-12 text-[10px] tracking-[0.2em] font-bold uppercase">
             <a href="index.html" class="gold">Home</a>
-            <a href="lab.html" class="hover:text-[#c5a059] transition">The Lab</a>
-            <a href="booking.html" class="hover:text-[#c5a059] transition">Book a Slot</a>
-            <a href="wholesale.html" class="hover:text-[#c5a059] transition">Wholesale</a>
+            <a href="lab.html">The Lab</a>
+            <a href="booking.html">Book a Slot</a>
+            <a href="wholesale.html">Wholesale</a>
         </div>
-        <a href="booking.html" class="bg-white text-black px-8 py-3 rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-gold hover:text-white transition">Order Now</a>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center bg-[#1a1a1a] text-center">
+    <section class="relative h-screen flex flex-col items-center justify-center bg-[#1a1a1a] text-center px-4">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-50">
-            <div class="absolute inset-0 bg-black/40"></div>
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-black/50"></div>
         </div>
 
-        <div class="relative z-10 px-4">
-            <h1 class="text-7xl md:text-[120px] font-serif text-white italic leading-none mb-6">Artisan Soul.</h1>
-            <p class="text-white/70 text-sm md:text-lg max-w-xl mx-auto font-light tracking-wide mb-10 leading-relaxed">
-                Stella Special Bread is a micro-bakery dedicated to the science of long-fermentation and the art of the perfect crust. 
-            </p>
-            <div class="flex justify-center">
-                <a href="booking.html" class="px-10 py-4 bg-gold text-[#1a1a1a] rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-300">Reserve Your Loaf</a>
+        <div class="relative z-10 w-full max-w-4xl">
+            <span class="gold uppercase tracking-[0.5em] text-[10px] mb-8 block">The Stella Philosophy</span>
+            
+            <div id="motivation-container" class="h-40 md:h-64 flex items-center justify-center">
+                <h2 id="motivation-text" class="text-3xl md:text-6xl font-serif text-white italic leading-tight">
+                    "Great bread begins in the soil, not the oven."
+                </h2>
+            </div>
+
+            <div class="mt-12">
+                <a href="booking.html" class="px-12 py-4 bg-[#c5a059] text-black rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-500">
+                    Book Today's Batch
+                </a>
             </div>
         </div>
     </section>
 
-    <div id="notification" class="fixed bottom-8 left-8 z-[100] bg-white border border-gray-100 shadow-2xl p-4 rounded-xl flex items-center gap-4 max-w-xs">
-        <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-xl">🥖</div>
-        <div>
-            <p id="notif-text" class="text-[11px] leading-snug font-medium text-gray-800 tracking-tight">
-                Someone in **London** just booked an **08:00 AM Slot**.
+    <section class="py-24 bg-[#fdfaf6] text-center px-8">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-3xl font-serif mb-6 italic">Why Flour Matters</h3>
+            <p class="text-gray-500 leading-relaxed font-light italic">
+                "We exclusively use stone-milled, organic heritage grains. By preserving the germ and the bran, we ensure every slice of Stella Special is alive with nutrients and the true flavor of the earth."
             </p>
-            <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1" id="notif-time">Just now</p>
         </div>
-    </div>
-
-    <section class="py-24 px-8 bg-[#fdfaf6] text-center">
-        <h2 class="text-4xl font-serif italic mb-4">Baked with Patience</h2>
-        <p class="text-gray-500 max-w-md mx-auto">Small batches. Hand-shaped. Scientifically fermented.</p>
     </section>
 
-    <footer class="bg-[#1a1a1a] py-12 px-8 text-center text-white/20">
-        <div class="text-[10px] uppercase tracking-[0.5em] mb-2 font-bold">Stella Special Bread Co.</div>
-    </footer>
-
     <script>
-        // --- MOTIVATION ENGINE LOGIC ---
-        const notifications = [
-            "A customer just reserved a **Signature Sourdough**.",
-            "Batch #402 is now **85% Sold Out**.",
-            "Someone from **The Heights** just booked a 10:30 AM slot.",
-            "Only **3 loaves remaining** for the 01:00 PM bake.",
-            "New Wholesale Partner: **The Daily Grind Café** joined.",
-            "A regular just booked their **Weekly Subscription**.",
-            "Fresh batch of **Honey Brioche** just exited the oven."
+        // --- THE FLOUR MOTIVATION ENGINE ---
+        const quotes = [
+            "\"Great bread begins in the soil, not the oven.\"",
+            "\"Respect the grain, and the crust will reward you.\"",
+            "\"Flour, water, salt, and time: The sacred quartet.\"",
+            "\"Stone-milled flour is the heartbeat of every Stella loaf.\"",
+            "\"We don't just bake bread; we wake the grain.\"",
+            "\"In every kernel of wheat lies a story of patience.\"",
+            "\"True flavor lives in the germ of the wheat.\""
         ];
 
-        const notifElement = document.getElementById('notification');
-        const notifText = document.getElementById('notif-text');
-        const notifTime = document.getElementById('notif-time');
+        let currentIndex = 0;
+        const textElement = document.getElementById('motivation-text');
+        const container = document.getElementById('motivation-container');
 
-        function showNotification() {
-            // Pick a random message
-            const randomMsg = notifications[Math.floor(Math.random() * notifications.length)];
-            notifText.innerHTML = randomMsg;
-            
-            // Show notification
-            notifElement.classList.add('show');
+        function rotateQuote() {
+            // Start Fade Out
+            container.style.opacity = 0;
 
-            // Hide after 4 seconds
             setTimeout(() => {
-                notifElement.classList.remove('show');
-            }, 4000);
+                currentIndex = (currentIndex + 1) % quotes.length;
+                textElement.innerText = quotes[currentIndex];
+                // Start Fade In
+                container.style.opacity = 1;
+            }, 800); // Wait for fade out to complete before changing text
         }
 
-        // Start the cycle: Show every 7 seconds (3s gap between animations)
-        setInterval(showNotification, 7000);
-        
-        // Trigger first one after 2 seconds
-        setTimeout(showNotification, 2000);
+        // Change every 3.5 seconds
+        setInterval(rotateQuote, 3500);
 
-        // Navbar scroll effect
+        // Navbar scroll logic
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.style.background = "#1a1a1a";
-            else nav.style.background = "transparent";
+            if (window.scrollY > 50) nav.style.backgroundColor = "#1a1a1a";
+            else nav.style.backgroundColor = "transparent";
         });
     </script>
 </body>
