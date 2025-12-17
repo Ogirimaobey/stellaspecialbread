@@ -11,15 +11,24 @@
         .font-serif { font-family: 'Cormorant Garamond', serif; }
         .gold { color: #c5a059; }
         .bg-gold { background-color: #c5a059; }
-        .nav-link { letter-spacing: 0.2em; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-        .hero-video-overlay { background: linear-gradient(to bottom, rgba(26,26,26,0.8), rgba(26,26,26,0.4)); }
+        
+        /* Notification Animation */
+        #notification {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
     <nav class="fixed w-full z-50 flex justify-between items-center px-8 md:px-16 py-8 bg-transparent text-white transition-all duration-500" id="navbar">
         <div class="text-2xl font-bold tracking-tighter uppercase">Stella <span class="gold">Special</span></div>
-        <div class="hidden md:flex space-x-12 nav-link">
+        <div class="hidden md:flex space-x-12 text-[10px] tracking-[0.2em] font-bold uppercase">
             <a href="index.html" class="gold">Home</a>
             <a href="lab.html" class="hover:text-[#c5a059] transition">The Lab</a>
             <a href="booking.html" class="hover:text-[#c5a059] transition">Book a Slot</a>
@@ -30,8 +39,8 @@
 
     <section class="relative h-screen flex items-center justify-center bg-[#1a1a1a] text-center">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-50" alt="Sourdough Background">
-            <div class="absolute inset-0 hero-video-overlay"></div>
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-black/40"></div>
         </div>
 
         <div class="relative z-10 px-4">
@@ -39,57 +48,72 @@
             <p class="text-white/70 text-sm md:text-lg max-w-xl mx-auto font-light tracking-wide mb-10 leading-relaxed">
                 Stella Special Bread is a micro-bakery dedicated to the science of long-fermentation and the art of the perfect crust. 
             </p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="lab.html" class="w-full md:w-auto px-10 py-4 bg-gold text-[#1a1a1a] rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-300">Explore the Lab</a>
-                <a href="#philosophy" class="text-white text-[10px] uppercase tracking-[0.3em] border-b border-white/30 pb-2 hover:border-gold transition">Our Philosophy</a>
+            <div class="flex justify-center">
+                <a href="booking.html" class="px-10 py-4 bg-gold text-[#1a1a1a] rounded-full text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition duration-300">Reserve Your Loaf</a>
             </div>
         </div>
     </section>
 
-    <section id="philosophy" class="py-32 px-8 md:px-16 bg-[#fdfaf6]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1585478259715-876a6a81b2d4?auto=format&fit=crop&q=80" class="w-full rounded-sm shadow-2xl" alt="Bread Craft">
-                <div class="absolute -bottom-10 -right-10 hidden md:block w-64 h-64 bg-gold p-8 text-[#1a1a1a]">
-                    <p class="font-serif italic text-3xl">"Time is our secret ingredient."</p>
-                </div>
-            </div>
-            <div>
-                <span class="gold uppercase tracking-[0.4em] text-xs font-bold mb-6 block">The Stella Standard</span>
-                <h2 class="text-5xl md:text-6xl font-serif mb-8 leading-tight">Every loaf is a 48-hour journey.</h2>
-                <p class="text-gray-600 leading-relaxed mb-8">
-                    Unlike commercial bakeries, Stella Special Bread never rushes. Our dough undergoes a strictly controlled cold-fermentation process that develops deep flavor and ensures a crumb that is as light as it is nutritious.
-                </p>
-                <div class="grid grid-cols-2 gap-8 pt-8 border-t border-gray-200">
-                    <div>
-                        <h4 class="font-bold text-xl mb-2">100%</h4>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Natural Leaven</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-2">Small Batch</h4>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-400">Max 50 Loaves/Day</p>
-                    </div>
-                </div>
-            </div>
+    <div id="notification" class="fixed bottom-8 left-8 z-[100] bg-white border border-gray-100 shadow-2xl p-4 rounded-xl flex items-center gap-4 max-w-xs">
+        <div class="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-xl">🥖</div>
+        <div>
+            <p id="notif-text" class="text-[11px] leading-snug font-medium text-gray-800 tracking-tight">
+                Someone in **London** just booked an **08:00 AM Slot**.
+            </p>
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest mt-1" id="notif-time">Just now</p>
         </div>
+    </div>
+
+    <section class="py-24 px-8 bg-[#fdfaf6] text-center">
+        <h2 class="text-4xl font-serif italic mb-4">Baked with Patience</h2>
+        <p class="text-gray-500 max-w-md mx-auto">Small batches. Hand-shaped. Scientifically fermented.</p>
     </section>
 
-    <footer class="bg-[#1a1a1a] py-20 px-8 text-center text-white/40">
-        <div class="text-[10px] uppercase tracking-[0.5em] mb-4 font-bold">Stella Special Bread Co.</div>
-        <p class="text-xs">&copy; 2025 Crafted with Patience.</p>
+    <footer class="bg-[#1a1a1a] py-12 px-8 text-center text-white/20">
+        <div class="text-[10px] uppercase tracking-[0.5em] mb-2 font-bold">Stella Special Bread Co.</div>
     </footer>
 
     <script>
-        // Navbar Scroll Effect
+        // --- MOTIVATION ENGINE LOGIC ---
+        const notifications = [
+            "A customer just reserved a **Signature Sourdough**.",
+            "Batch #402 is now **85% Sold Out**.",
+            "Someone from **The Heights** just booked a 10:30 AM slot.",
+            "Only **3 loaves remaining** for the 01:00 PM bake.",
+            "New Wholesale Partner: **The Daily Grind Café** joined.",
+            "A regular just booked their **Weekly Subscription**.",
+            "Fresh batch of **Honey Brioche** just exited the oven."
+        ];
+
+        const notifElement = document.getElementById('notification');
+        const notifText = document.getElementById('notif-text');
+        const notifTime = document.getElementById('notif-time');
+
+        function showNotification() {
+            // Pick a random message
+            const randomMsg = notifications[Math.floor(Math.random() * notifications.length)];
+            notifText.innerHTML = randomMsg;
+            
+            // Show notification
+            notifElement.classList.add('show');
+
+            // Hide after 4 seconds
+            setTimeout(() => {
+                notifElement.classList.remove('show');
+            }, 4000);
+        }
+
+        // Start the cycle: Show every 7 seconds (3s gap between animations)
+        setInterval(showNotification, 7000);
+        
+        // Trigger first one after 2 seconds
+        setTimeout(showNotification, 2000);
+
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-[#1a1a1a]', 'py-4');
-                nav.classList.remove('py-8');
-            } else {
-                nav.classList.remove('bg-[#1a1a1a]', 'py-4');
-                nav.classList.add('py-8');
-            }
+            if (window.scrollY > 50) nav.style.background = "#1a1a1a";
+            else nav.style.background = "transparent";
         });
     </script>
 </body>
