@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stella Special Bread | Artisan Batch Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fdfaf6; color: #1a1a1a; scroll-behavior: smooth; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .gold-accent { color: #c5a059; }
+        .bg-gold { background-color: #c5a059; }
+        
+        /* Smooth Fade-in Animation */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Luxury Hover Effect for Slots */
+        .slot-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slot-card:hover:not(.sold-out) { border-color: #c5a059; transform: translateY(-5px); background: #fffdfa; }
+        .sold-out { opacity: 0.4; cursor: not-allowed; filter: grayscale(1); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 bg-[#fdfaf6]/90 backdrop-blur-md border-b border-gray-100">
+        <div class="text-xl font-bold tracking-tighter uppercase">Stella <span class="gold-accent">Special</span></div>
+        <div class="hidden md:flex space-x-10 text-[10px] tracking-[0.3em] uppercase font-bold">
+            <a href="#lab" class="hover:text-[#c5a059] transition">The Lab</a>
+            <a href="#booking" class="hover:text-[#c5a059] transition">Book a Slot</a>
+            <a href="#story" class="hover:text-[#c5a059] transition">Our Story</a>
+        </div>
+        <a href="#booking" class="bg-[#1a1a1a] text-white px-5 py-2 rounded-full text-[10px] uppercase tracking-widest hover:bg-gold transition">Reserve</a>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center bg-[#1a1a1a] text-white overflow-hidden">
+        <div class="z-10 text-center px-4">
+            <span class="gold-accent uppercase tracking-[0.4em] text-xs mb-4 block fade-in">Artisan Small Batch</span>
+            <h1 class="text-6xl md:text-9xl font-serif italic mb-6 fade-in">The Stella Standard</h1>
+            <p class="max-w-md mx-auto text-gray-400 font-light leading-relaxed mb-8 fade-in">
+                48-hour fermentation. Local grains. Baked fresh for your specific time slot.
+            </p>
+            <a href="#booking" class="inline-block border border-white px-8 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition fade-in">Explore Today's Bake</a>
+        </div>
+        <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80')] bg-cover bg-center"></div>
+    </section>
+
+    <section id="lab" class="py-24 px-6 md:px-12">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-serif mb-12 italic">The Rotation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="fade-in">
+                    <div class="aspect-[4/5] bg-gray-200 overflow-hidden rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1585478259715-876a6a81b2d4?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h3 class="mt-6 text-xl font-serif">Signature Sourdough</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">$12.00 — White & Wholemeal Blend</p>
+                </div>
+                <div class="fade-in">
+                    <div class="aspect-[4/5] bg-gray-200 overflow-hidden rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h3 class="mt-6 text-xl font-serif">Seeded Multigrain</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">$14.00 — 7 Grain Luxury</p>
+                </div>
+                <div class="fade-in">
+                    <div class="aspect-[4/5] bg-gray-200 overflow-hidden rounded-sm">
+                        <img src="https://images.unsplash.com/photo-1606101273945-e9eba91c0dc4?auto=format&fit=crop&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                    </div>
+                    <h3 class="mt-6 text-xl font-serif">Honey Brioche</h3>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1">$16.00 — Enriched & Fluffy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-24 bg-white border-y border-gray-100 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-serif mb-4">Secure a Batch</h2>
+            <p class="text-gray-500 mb-12">Pick-up Location: 123 Artisan Way, Stella Lab</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="slot-card p-8 border border-gray-100 rounded-3xl text-left cursor-pointer" onclick="selectSlot(this)">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold">08:00 AM</span>
+                        <span class="text-[10px] bg-green-50 text-green-600 px-2 py-1 rounded-full font-bold uppercase tracking-widest">Available</span>
+                    </div>
+                    <p class="text-xs text-gray-400">12 Loaves remaining in this bake</p>
+                </div>
+                <div class="slot-card p-8 border border-gray-100 rounded-3xl text-left cursor-pointer sold-out">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold">10:30 AM</span>
+                        <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-1 rounded-full font-bold uppercase tracking-widest">Sold Out</span>
+                    </div>
+                    <p class="text-xs text-gray-400">Next availability: Tomorrow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center bg-[#fdfaf6]">
+        <div class="text-xs uppercase tracking-[0.5em] text-gray-400 mb-4">Stella Special Bread Co.</div>
+        <p class="text-[10px] text-gray-400">&copy; 2025 Hand-crafted in the Bakery</p>
+    </footer>
+
+    <script>
+        // Reveal elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Simple selection logic
+        function selectSlot(element) {
+            if(element.classList.contains('sold-out')) return;
+            document.querySelectorAll('.slot-card').forEach(card => card.style.borderColor = '#f3f4f6');
+            element.style.borderColor = '#c5a059';
+            alert("Slot 08:00 AM Reserved for Stella Special Sourdough!");
+        }
+    </script>
+</body>
+</html>
